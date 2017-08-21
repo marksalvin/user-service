@@ -2,7 +2,7 @@ node_modules
 .DS_Store
 *.log
 .env
-coverage.lcov
-unit-test-report.xml
+integration-test-coverage.lcov
+unit-test-coverage.lcov
 .nyc_output
 coverage

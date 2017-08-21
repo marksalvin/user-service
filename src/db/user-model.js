@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const env = require('../env-vars');
-
 mongoose.Promise = Promise;
 
 const UserSchema = new mongoose.Schema({

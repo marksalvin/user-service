@@ -1,7 +1,7 @@
 const userDeleter = require('../db/user-deleter');
 const userGetter = require('../db/user-getter');
 
-const deleteUser = async (req, res, next) => {
+const deleteUser = async (req, res) => {
   const {
     params: {
       id,
@@ -17,7 +17,7 @@ const deleteUser = async (req, res, next) => {
     await userDeleter(id);
 
     return res.status(204).end();
-  } catch(err) {
+  } catch (err) {
     return res.status(500).send('Service unavailable :(');
   }
 };

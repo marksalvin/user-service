@@ -2,7 +2,7 @@ const User = require('./user-model');
 
 module.exports = (email, forename, surname) => {
   const user = new User({
-    email, 
+    email,
     forename,
     surname,
   });

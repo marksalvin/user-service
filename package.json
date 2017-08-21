@@ -19,10 +19,10 @@
   "author": "Mark Salvin",
   "license": "ISC",
   "devDependencies": {
-    "babel-eslint": "7.2.3",
+    "babel-eslint": "6.0.4",
     "eslint": "2.11.1",
-    "eslint-config-airbnb-base": "11.3.1",
-    "eslint-plugin-import": "2.7.0",
+    "eslint-config-airbnb-base": "3.0.1",
+    "eslint-plugin-import": "1.8.1",
     "nodemon": "1.11.0",
     "nsp": "2.6.1",
     "nyc": "11.0.2",

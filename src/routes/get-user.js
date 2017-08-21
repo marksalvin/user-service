@@ -1,9 +1,9 @@
 const userGetter = require('../db/user-getter');
 
-const getUser = async (req, res, next) => {
+const getUser = async (req, res) => {
   const {
     params: {
-      id
+      id,
     },
   } = req;
 
@@ -16,7 +16,7 @@ const getUser = async (req, res, next) => {
     const { _id: userId, email, forename, surname, created_at } = user;
 
     return res.json({ id: userId, email, forename, surname, created_at });
-  } catch(err) {
+  } catch (err) {
     return res.status(500).send('Service unavailable :(');
   }
 };

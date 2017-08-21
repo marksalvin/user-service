@@ -1,7 +1,7 @@
 const userUpdater = require('../db/user-updater');
 const userGetter = require('../db/user-getter');
 
-const updateUser = async (req, res, next) => {
+const updateUser = async (req, res) => {
   const {
     params: {
       id,
@@ -21,8 +21,7 @@ const updateUser = async (req, res, next) => {
 
     const { _id: userId } = await userUpdater(id, email, forename, surname);
     return res.status(201).json({ id: userId });
-  } catch(err) {
-    console.log(err)
+  } catch (err) {
     return res.status(500).send('Service unavailable :(');
   }
 };

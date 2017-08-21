@@ -25,8 +25,8 @@ module.exports = app => {
     '/v1/user/:id',
     joiValidate(getUserValidationRules),
     getUser
-  )
-  
+  );
+
   app.delete(
     '/v1/user/:id',
     joiValidate(deleteUserValidationRules),
