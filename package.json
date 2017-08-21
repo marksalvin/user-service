@@ -1,0 +1,50 @@
+{
+  "name": "user-service",
+  "version": "0.0.1",
+  "engines": {
+    "node": "8.3.0"
+  },
+  "description": "A service to create, update, get and delete a user",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test:unit": "nyc tape './test/unit/**/*.spec.js' && npm run test:unit:report",
+    "test:unit:watch": "nodemon -q -x 'npm run test:unit --silent'",
+    "test:unit:report": "nyc report --reporter=text-lcov > unit-test-coverage.lcov",
+    "test:integration:report": "nyc report --reporter=text-lcov > integration-test-coverage.lcov",
+    "test:integration": "nyc tape './test/integration/**/*.spec.js' && npm run test:integration:report",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint --fix src/**/*.js"
+  },
+  "author": "Mark Salvin",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "7.2.3",
+    "eslint": "2.11.1",
+    "eslint-config-airbnb-base": "11.3.1",
+    "eslint-plugin-import": "2.7.0",
+    "nodemon": "1.11.0",
+    "nsp": "2.6.1",
+    "nyc": "11.0.2",
+    "proxyquire": "1.7.10",
+    "supertest": "1.2.0",
+    "tap-spec": "4.1.1",
+    "tap-xunit": "1.4.0",
+    "tape": "4.6.0",
+    "timekeeper": "0.1.1"
+  },
+  "dependencies": {
+    "body-parser": "1.15.1",
+    "cors": "2.7.1",
+    "dotenv": "2.0.0",
+    "envalid": "2.2.0",
+    "express": "4.14.0",
+    "express-joi": "0.3.1",
+    "extend": "3.0.0",
+    "helmet": "2.1.1",
+    "joi": "9.0.0",
+    "mongoose": "4.6.2",
+    "ramda": "0.23.0",
+    "response-time": "2.3.1"
+  }
+}

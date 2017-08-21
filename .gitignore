@@ -1,0 +1,8 @@
+node_modules
+.DS_Store
+*.log
+.env
+coverage.lcov
+unit-test-report.xml
+.nyc_output
+coverage

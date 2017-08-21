@@ -1,0 +1,50 @@
+version: '2'
+services:
+  node:
+    image: risingstack/alpine:3.4-v8.3.0-4.5.2
+    volumes:
+      - .:/usr/src/app:z
+    working_dir: /usr/src/app
+
+  npm:
+    extends:
+      service: node
+    entrypoint: npm
+
+  unit-test:
+    extends:
+      service: npm
+    command: run test:unit:report
+
+  mongodb:
+    image: mongo:3.4.1
+    ports:
+      - "27017:27017"
+
+  integration-test:
+    extends:
+      service: npm
+    command: run test:integration
+    env_file: .env-test
+    depends_on:
+      - mongodb
+
+  dev:
+    build: .
+    ports:
+      - "3000:80"
+    volumes:
+      - .:/usr/src/app:z
+    depends_on:
+      - mongodb
+    environment:
+     - PORT=80
+     - MONGODB_URL=mongodb://mongodb:27017/user-service
+     - CONTEXT_ROUTE=/user-service
+    networks:
+      - default
+      - dev
+
+networks:
+  dev:
+    driver: bridge

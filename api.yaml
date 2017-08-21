@@ -1,0 +1,88 @@
+---
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: User service
+  description: RESTful service to create, update, get and delete users
+schemes:
+  - https
+basePath: /user-service/v1
+consumes:
+  - application/json
+paths:
+  /user:
+    post:
+      description: Create a user and return the id
+      parameters:
+        - name: user
+          in: body
+          required: true
+          schema:
+            type: object
+      responses:
+        201:
+          description: user id
+          schema:
+            type: object
+        400:
+          description: Validation error
+        401:
+          description: Authorization error
+        500:
+          description: Server error
+  /user/{id}:
+    put:
+      description: Update user
+      parameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: user
+          in: body
+          required: false
+          schema:
+            type: object
+      responses:
+        201:
+          description: User saved
+        400:
+          description: Validation error
+        404:
+          description: User not found
+        500:
+          description: Server error
+    get:
+      description: Get user
+      parameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      responses:
+        200:
+          description: A user
+          schema:
+            type: object
+        400:
+          description: Validation error
+        404:
+          description: User not found
+        500:
+          description: Server error
+    delete:
+      description: Delete user
+      parameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      responses:
+        200:
+          description: User deleted
+        400:
+          description: Validation error
+        404:
+          description: User not found
+        500:
+          description: Server error
